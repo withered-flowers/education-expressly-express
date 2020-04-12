@@ -210,6 +210,11 @@ Contoh URL dan penggunaan yang tepat:
 * `localhost/users/[1]` => menggunakan req.params
 * `localhost/users?[search=1]` => menggunakan req.query
 
+Pada kode cara menggunakan `req.params` dan `req.query` pun berbeda:
+* `req.params` harus mendefinisikan parameter pada `endpoint` (e.g. `/abc/:param1`)
+* `req.query` tidak perlu mendefinisikan parameter pada `endpoint` namun kita perlu 
+  mendefinisikannya via url di browser (e.g. `localhost/abc?param1=value1`)
+
 Untuk memperdalam lebih lanjut, kita akan memodifikasi Code 3 menjadi 
 [Code 4](#code-4) di bawah ini.
 
