@@ -302,7 +302,7 @@ BEST PRACTICE:
   penulisan endpointnya dipisah dengan *hyphen* / *dash* `-` menjadi 
   `belum-bosen`.
 
-<span style='color:#8D021F'>WARNING</span>:
+WARNING:
 * Dalam menuliskan rute pada express, posisi menentukan prestasi, jadi jangan 
   sampai menuliskan rute yang bertentangan pada urutan yang salah yah !
 
