@@ -5,8 +5,8 @@ const PORT = 3000;
 
 // Di sini kita mendefinisikan penggunaan endpoint '/'
 // yang akan meng-handle HTTP GET method
-app.get('/', function HTTPGetRootHandler(request, response) {
-  response.send("Hello world");
+app.get('/', function HTTPGetRootHandler(req, res) {
+  res.send("Hello world");
 });
 
 

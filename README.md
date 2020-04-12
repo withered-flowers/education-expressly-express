@@ -98,8 +98,8 @@ const PORT = 3000;
 
 // Di sini kita mendefinisikan penggunaan endpoint '/'
 // yang akan meng-handle HTTP GET method
-app.get('/', function HTTPGetRootHandler(request, response) {
-  response.send("Hello world");
+app.get('/', function HTTPGetRootHandler(req, res) {
+  res.send("Hello world");
 });
 
 
@@ -153,27 +153,27 @@ const app = express();
 
 const PORT = 3000;
 
-app.get('/', function HTTPGetRootHandler(request, response) {
-  response.send("Hello world");
+app.get('/', function HTTPGetRootHandler(req, res) {
+  res.send("Hello world");
 });
 
 // Selain define endpoint users,
 // Kita juga bisa mengkombinasikan untuk membaca file json di sini
 // dan menampilkannya ke dalam browser kita, yay !
-app.get('/users', function HTTPGetUsersHandler(request, response) {
+app.get('/users', function HTTPGetUsersHandler(req, res) {
   fs.readFile('./0-generated.json', 'utf8', function readHandler(err, data) {
     if(err) {
-      response.send(err);
+      res.send(err);
     }
 
-    response.send(JSON.parse(data));
+    res.send(JSON.parse(data));
   });
 });
 
 // Disini ceritanya kita menginginkan inputan id dari browser untuk kita
 // proses / tampilkan kembali
-app.get('/users/id', function HTTPGetUsersInputHandler(request, response) {
-  response.send(id);
+app.get('/users/id', function HTTPGetUsersInputHandler(req, res) {
+  res.send(id);
 });
 
 app.listen(3000, () => {
@@ -219,65 +219,65 @@ const app = express();
 
 const PORT = 3000;
 
-app.get('/', function HTTPGetRootHandler(request, response) {
-  response.send("Hello world");
+app.get('/', function HTTPGetRootHandler(req, res) {
+  res.send("Hello world");
 });
 
 // Di endpoint ini kita akan menggunakan req.query
-app.get('/users', function HTTPGetUsersHandler(request, response) {
+app.get('/users', function HTTPGetUsersHandler(req, res) {
   fs.readFile('./0-generated.json', 'utf8', function readHandler(err, data) {
     if(err) {
-      response.send(err);
+      res.send(err);
     }
 
     data = JSON.parse(data);
     
     // Ingat data dari req.query selalu berbentuk string
-    if(request.query.reversed === 'true') {
+    if(req.query.reversed === 'true') {
       data.sort((a,b) => b.id - a.id);
     }
 
-    response.send(data);
+    res.send(data);
   });
 });
 
 
 // Di endpoint ini kita akan menggunakan req.params
-app.get('/users/:id', function HTTPGetUsersInputHandler(request, response) {
-  // response.send(request.params.id);
+app.get('/users/:id', function HTTPGetUsersInputHandler(req, res) {
+  // res.send(req.params.id);
 
   fs.readFile('./0-generated.json', 'utf8', function readHandler(err, data) {
     if(err) {
-      response.send(err);
+      res.send(err);
     }
 
     data = JSON.parse(data);
-    data = data.find(element => element.id === parseInt(request.params.id));
+    data = data.find(element => element.id === parseInt(req.params.id));
 
-    response.send(data);
+    res.send(data);
   });
 });
 
 // Di endpoint ini kita akan mengkombinasikan req.params dan req.query
-app.get('/users/:id/companies', function HTTPGetUserCompaniesHandler(request, response) {
+app.get('/users/:id/companies', function HTTPGetUserCompaniesHandler(req, res) {
   fs.readFile('./0-generated.json', 'utf8', function readHandler(err, data) {
     let result = null;
 
     if(err) {
-      response.send(err);
+      res.send(err);
     }
 
     result = JSON.parse(data);
-    result = result.find(element => element.id === parseInt(request.params.id));
+    result = result.find(element => element.id === parseInt(req.params.id));
 
-    if(request.query.positions != null) {
-      result = result.companies[request.query.positions];
+    if(req.query.positions != null) {
+      result = result.companies[req.query.positions];
     }
     else {
       result = result.companies;
     }
 
-    response.send(result);
+    res.send(result);
   });
 });
 
