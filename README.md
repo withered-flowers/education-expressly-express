@@ -29,8 +29,8 @@ Cara menggunakan npm:
   * `package_lock.json` adalah file untuk menjaga konsistensi versi file yang 
     digunakan
 
-Pada pembelajaran ini, module tambahan yang digunakan adalah `nodemon`, 
-`express`, dan `pg`
+Pada pembelajaran ini, module tambahan yang digunakan adalah `nodemon` dan
+`express`
 
 ## Recap express
 
