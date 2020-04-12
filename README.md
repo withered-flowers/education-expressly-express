@@ -28,6 +28,9 @@ Cara menggunakan npm:
   * `node_modules` adalah tempat di mana package tambahan ditaruh
   * `package_lock.json` adalah file untuk menjaga konsistensi versi file yang 
     digunakan
+* Jangan lupa untuk menambahkan file `.gitignore` untuk meng-*exclude* folder 
+  `node_modules` pada saat melakukan `git push` ke repo (kalau lupa, siap-siap, 
+  potong nilai !)
 
 Pada pembelajaran ini, module tambahan yang digunakan adalah `nodemon` dan
 `express`
