@@ -144,7 +144,7 @@ akan langsung `auto restart`, sungguh memudahkan development bukan ?
 
 ## Basic Routing
 Pada express, kita bebas menentukan `endpoint` yang kita inginkan dengan nama 
-tertentu pada aplikasi web yan akan kita gunakan, mari kita memodifikasi 
+tertentu pada aplikasi web yang akan kita gunakan, mari kita memodifikasi 
 Code 2 menjadi [Code 3](#code-3) di bawah ini
 
 ### Code 3
